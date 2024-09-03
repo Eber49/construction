@@ -1,17 +1,17 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Voir https://help.github.com/articles/ignoring-files/ pour plus d'informations sur l'ignorance des fichiers.
 
-# dependencies
+# Dépendances
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# Tests
 /coverage
 
-# production
+# Production
 /build
 
-# misc
+# Divers
 .DS_Store
 .env.local
 .env.development.local
@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Visual Studio
+.vs/
