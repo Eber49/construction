@@ -1,19 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Header.css';
+import Dropdown from './Dropdown';
+import '../styles/Dropdown.css';
 
 const Header = () => {
     return (
         <header className="header">
-            <h1>Nom de l'entreprise</h1>
-            <nav>
-                <ul>
-                    <li><Link to="/">Accueil</Link></li>
-                    <li><Link to="/about-us">À propos de nous</Link></li>
-                    <li><Link to="/construction">Construction maison</Link></li>
-                    <li><Link to="/projects">Réalisations</Link></li>
-                    <li><Link to="/news">Actualités</Link></li>
-                </ul>
+            <nav className="nav">
+                <Dropdown
+                    title="Home"
+                    items={['Savoir-faire', 'Qualités', 'Garantie', 'Partenaire']}
+                />
+                <Dropdown
+                    title="About Us"
+                    items={['Étude de terrain pour faire construire', 'Exemples et Plans']}
+                />
+                <Dropdown
+                    title="Construction maison"
+                    items={['Faire construire sa maison: les étapes']}
+                />
+                <div className="dropdown">
+                    <button className="dropdown-btn">News</button>
+                </div>
+                <div className="dropdown">
+                    <button className="dropdown-btn">Project</button>
+                </div>
             </nav>
         </header>
     );

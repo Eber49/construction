@@ -1,0 +1,83 @@
+.header {
+	background-color: #333;
+	color: #fff;
+	padding: 15px 20px;
+	display: flex;
+	justify-content: space-between; /* Espace entre la navigation et le logo */
+	align-items: center;
+}
+
+.nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+	.nav .dropdown {
+		margin-left: 20px;
+	}
+
+.logo-container {
+	margin-left: 20px; /* Ajuste l'espace à gauche du logo */
+}
+
+.logo {
+	height: 50px; /* Ajustez la taille du logo en fonction de vos besoins */
+}
+
+
+.dropdown {
+	position: relative;
+}
+
+.dropdown-btn {
+	background-color: transparent; /* Pas de couleur de fond */
+	color: #333;
+	padding: 10px 20px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	text-decoration: none;
+	transition: color 0.3s ease; /* Transition douce pour la couleur */
+}
+
+	.dropdown-btn:hover {
+		color: orange; /* Change la couleur du texte au survol en orange */
+	}
+
+/* Transition douce pour afficher la liste avec scaleY et opacity */
+.dropdown-content {
+	position: absolute;
+	right: 0;
+	background-color: #f9f9f9;
+	white-space: nowrap;
+	box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+	z-index: 1;
+	opacity: 0;
+	transform: scaleY(0); /* Réduit l'échelle verticale à 0 */
+	list-style-type: none; /* Enlève les points devant les mots */
+	transform-origin: top; /* L'effet se produit à partir du haut */
+	transition: transform 0.9s ease, opacity 0.9s ease; /* Transition plus longue pour plus de fluidité
+	*/
+	list-style-type: none; /* Enlève les points devant les mots */
+	padding-left: 0;
+	margin: 0;
+}
+
+/* Afficher le menu avec une transition douce */
+.dropdown:hover .dropdown-content {
+	opacity: 1;
+	transform: scaleY(1); /* Réaligne à l'échelle 1 (pleine taille verticale) */
+}
+
+.dropdown-content li {
+	padding: 8px 10px;
+	color: black;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color 0.3s ease; /* Transition douce pour le fond */
+}
+
+	.dropdown-content li:hover {
+		color: orange; /* Change la couleur du texte en orange au survol */
+		background-color: transparent; /* Garde le fond transparent au survol */
+	}

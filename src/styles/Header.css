@@ -1,30 +1,77 @@
 .header {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent !important; /* Forcer la transparence */
+    color: #fff; /* Garde la couleur du texte en blanc */
     padding: 15px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end; /* Assure que tout le contenu du header est aligné à droite */
+    align-items: center;
+    width: 100%; /* Assure que le header prend toute la largeur */
 }
 
-    .header h1 {
-        font-size: 28px;
-        margin: 0;
+.nav {
+    display: flex;
+    justify-content: flex-end; /* Aligne les sections à droite */
+    align-items: center;
+    gap: 20px; /* Espace entre les sections */
+    width: 100%; /* Prendre toute la largeur du header */
+}
+
+    .nav .dropdown {
+        margin-left: 20px;
     }
 
-    .header nav ul {
-        list-style: none;
-        padding: 0;
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: transparent; /* Pas de couleur de fond */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transition douce pour la couleur */
+}
+
+    .dropdown-btn:hover {
+        color: orange; /* Change la couleur du texte au survol en orange */
     }
 
-        .header nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
+/* Style pour la liste déroulante */
+.dropdown-content {
+    position: absolute;
+    top: 100%; /* Aligne la liste juste en dessous du bouton */
+    right: 0;
+    background-color: #f9f9f9;
+    white-space: nowrap;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transform: scaleY(0); /* Réduit l'échelle verticale à 0 */
+    transform-origin: top; /* L'effet se produit à partir du haut */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    list-style-type: none; /* Enlève les points devant les mots */
+    padding-left: 0;
+    margin: 0;
+}
 
-            .header nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+/* Afficher le menu avec une transition douce */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    transform: scaleY(1); /* Réaligne à l'échelle 1 (pleine taille verticale) */
+}
 
-                .header nav ul li a:hover {
-                    text-decoration: underline;
-                }
+.dropdown-content li {
+    padding: 8px 10px;
+    color: black;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transition douce pour la couleur et le fond */
+}
+
+    .dropdown-content li:hover {
+        color: orange; /* Change la couleur du texte en orange au survol */
+        background-color: transparent; /* Garde le fond transparent au survol */
+    }
