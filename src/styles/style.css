@@ -1,5 +1,5 @@
 body, html {
-    background-color: transparent; /* Vous pouvez remplacer "white" par "transparent" si nécessaire */
+    background-color: white; /* Vous pouvez remplacer "white" par "transparent" si nécessaire */
     margin: 0;
     padding: 0;
     height: 100%; /* Assurez-vous que la hauteur couvre toute la page */

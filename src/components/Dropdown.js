@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/Dropdown.css';
+import '../styles/Dropdown.css?v=1.0'; // Ajoute une version pour forcer le rechargement
+
 
 const Dropdown = ({ title, items }) => {
     const [isOpen, setIsOpen] = useState(false);

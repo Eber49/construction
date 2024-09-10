@@ -1,12 +1,13 @@
 .header {
-    background-color: transparent !important; /* Forcer la transparence */
-    color: #fff; /* Garde la couleur du texte en blanc */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
+    color: #333; /* Couleur du texte plus sombre pour contraster */
     padding: 15px 20px;
     display: flex;
-    justify-content: flex-end; /* Assure que tout le contenu du header est aligné à droite */
+    justify-content: flex-end;
     align-items: center;
-    width: 100%; /* Assure que le header prend toute la largeur */
+    width: 100%;
 }
+
 
 .nav {
     display: flex;
