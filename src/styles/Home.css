@@ -1,3 +1,10 @@
+body {
+    font-family: 'CaviarDreams', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* General Styles */
 .page-container {
     display: flex;
@@ -7,7 +14,7 @@
 /* Section Home */
 .home-container {
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
@@ -15,14 +22,16 @@
 }
 
     .home-container h2 {
-        color: #333;
-        font-size: 24px;
-        margin-bottom: 10px;
+        color: orange;
+        font-size: 36px;
+        text-transform: uppercase;
+        font-family: 'CaviarDreams', sans-serif;
     }
 
     .home-container p {
         color: #666;
-        line-height: 1.6;
+        line-height: 1.8;
+        font-size: 20px;
     }
 
 /* Section Nos services */
@@ -33,6 +42,15 @@
     text-align: center;
     margin-bottom: 60px;
 }
+
+    .services-container h2 {
+        font-size: 36px;
+        color: orange;
+    }
+
+    .services-container p {
+        font-size: 22px;
+    }
 
 /* Section avec trois cartes de services */
 .three-sections {
@@ -66,7 +84,7 @@
 
 .overlay-card {
     position: absolute;
-    bottom: -40px; /* Permet à l'overlay de dépasser légèrement vers le bas */
+    bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
@@ -141,6 +159,19 @@
     background: linear-gradient(to left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
 }
 
+    .rectangular-card-content h3 {
+        font-size: 30px;
+        color: orange;
+        margin-bottom: 10px;
+    }
+
+    .rectangular-card-content p {
+        font-size: 1.3rem;
+        line-height: 1.4;
+        color: #555;
+        margin-top: 5px;
+    }
+
 /* Grande section */
 .large-section {
     padding: 60px 20px;
@@ -149,6 +180,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
 }
+
+    .large-section h2 {
+        font-size: 36px;
+        color: orange;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
 .section-content {
     display: flex;
@@ -175,11 +213,11 @@
 
     .text-right p:first-child {
         font-size: 1.4rem;
-        font-family: 'Arial', sans-serif;
+        font-family: 'CaviarDreams', sans-serif;
     }
 
     .text-right p:nth-child(2) {
-        color: #e67e22;
+        color: orange;
         font-weight: bold;
     }
 
@@ -190,25 +228,70 @@
     margin-top: 40px;
 }
 
+/* Flip effect styles for the information section */
 .info-card {
-    flex: 1;
-    background-color: #f7f7f7;
+    perspective: 1000px;
+    width: 100%;
+    height: 350px; /* Augmentation de la taille des rectangles */
+}
+
+.info-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.info-card:hover .info-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back styles for cards */
+.info-card-front, .info-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Front side */
+.info-card-front {
+    background-color: #fff;
+    color: black;
+    display: flex;
+}
+
+    .info-card-front .info-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+/* Back side with text */
+.info-card-back {
+    transform: rotateY(180deg);
+    background-color: #f7f7f7;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
     padding: 20px;
 }
 
-/* Images pour les rectangles de la section "Information" */
 .info-card-image {
     width: 100%;
-    margin-bottom: 20px;
+    height: 100%;
+    margin-bottom: 0;
 }
-
-    .info-card-image img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
 
 .info-card-content {
     text-align: center;
@@ -217,15 +300,40 @@
     line-height: 1.6;
 }
 
+.information-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Scroll to top button */
+.scroll-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: orange;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .scroll-top-button:hover {
+        background-color: #e67e22;
+    }
+
 /* Footer */
 .footer {
-    background-color: #c9c9c9; /* Couleur grise uniforme pour couvrir tout le footer */
-    color: white;
     padding: 20px;
     text-align: center;
     margin-top: 40px;
-    width: 100%; /* S'assurer que le footer prend toute la largeur de la page */
-    box-sizing: border-box; /* S'assure que le padding ne crée pas d'effet de débordement */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-content {
@@ -244,18 +352,26 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
     .footer-links li {
-        display: inline;
-        margin: 0 10px;
+        margin: 10px 0;
     }
 
     .footer-links a {
-        color: black;
+        color: blue;
         text-decoration: none;
     }
 
         .footer-links a:hover {
             text-decoration: underline;
         }
+
+.footer-links-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}

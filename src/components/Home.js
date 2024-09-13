@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Home.css'; // Assurez-vous de lier le fichier CSS approprié
 
 const Home = () => {
+    // State pour afficher la flèche de retour en haut
+    const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+
+    // Fonction pour afficher ou cacher la flèche selon la position du scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTopButton(true);
+            } else {
+                setShowScrollTopButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <div>
             {/* Section Home */}
@@ -69,7 +94,7 @@ const Home = () => {
                         <p>
                             Attachés à notre région depuis plus de 40 ans, nous construisons des maisons individuelles et rénovons du bâti ancien, en respectant les codes d’urbanisme locaux et la mosaïque de paysages contrastés qui fait le charme de la Lozère : landes, forêts, montagnes, falaises, canyons…
                         </p>
-                        <p>
+                        <p className="highlighted-paragraph">
                             Constructeur et rénovateur référent, nous concevons votre projet sur mesure et à votre image.
                         </p>
                         <p>
@@ -82,46 +107,67 @@ const Home = () => {
             {/* Deuxième grande section avec deux rectangles séparés */}
             <section className="large-section">
                 <h2>Information</h2>
+                <p className="information-description">
+                    Parce que construire une maison ne s’improvise pas, nous mettons à votre disposition son équipe d’experts du bâtiment et d’aménagement d’espaces, spécialisée dans la rénovation de l’immobilier ancien et la construction d’appartement neuf, de façon personnalisée, comme vous l’avez toujours rêvé. Chez SATA GCB vous avez une offre sur mesure au meilleur prix, avec une qualité répondant aux normes écologiques.
+                </p>
                 <div className="info-section">
-                    {/* Premier rectangle à gauche */}
                     <div className="info-card">
-                        <div className="info-card-image">
-                            <img src="/images/annonces-immobilieres.jpg" alt="Annonces immobilières" />
-                        </div>
-                        <div className="info-card-content">
-                            <p>
-                                Découvrez diverses annonces de biens immobiliers disponibles en vente et localisation sur CoinAfrique annonces, votre site de petites annonces.
-                            </p>
+                        <div className="info-card-inner">
+                            <div className="info-card-front">
+                                <div className="info-card-image">
+                                    <img src="/images/annonces-immobilieres.jpg" alt="Annonces immobilières" />
+                                </div>
+                            </div>
+                            <div className="info-card-back">
+                                <p>
+                                    Construire sa maison : un rêve que beaucoup de personnes partagent. Les avantages de faire construire sa propre maison sont, en effet, nombreux : choix des matériaux, construction à votre goût, maîtrise de la répartition des pièces, etc.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Deuxième rectangle à droite */}
                     <div className="info-card">
-                        <div className="info-card-image">
-                            <img src="/images/vente-maison.jpg" alt="Vente maison" />
-                        </div>
-                        <div className="info-card-content">
-                            <p>
-                                Dans la catégorie Vente maison Abidjan, vous trouverez plus de 2600 annonces immobilières, par exemple : vente maison de caractère ou vente maison.
-                            </p>
+                        <div className="info-card-inner">
+                            <div className="info-card-front">
+                                <div className="info-card-image">
+                                    <img src="/images/vente-maison.jpg" alt="Vente maison" />
+                                </div>
+                            </div>
+                            <div className="info-card-back">
+                                <p>
+                                    Si le projet semble valoir la peine de se lancer dans l’aventure, de nombreuses questions peuvent très vite survenir : quelles formalités sont nécessaires ? Quels matériaux ou quel constructeur choisir ? Combien de temps faut-il prévoir pour la construction ? Comment éviter les pièges ? Quel constructeur de maison choisir ?
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* Flèche de retour en haut */}
+            {showScrollTopButton && (
+                <div className="scroll-top-button" onClick={scrollToTop}>
+                    ↑
+                </div>
+            )}
+
             {/* Footer */}
             <footer className="footer">
                 <div className="footer-content">
                     <h4>Navigation</h4>
-                    <ul className="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Construction maison</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Projects</a></li>
-                    </ul>
+                    <div className="footer-links-group">
+                        <ul className="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Construction maison</a></li>
+                        </ul>
+                    </div>
+                    <div className="footer-links-group">
+                        <ul className="footer-links">
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Projects</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
             </footer>
         </div>
     );
